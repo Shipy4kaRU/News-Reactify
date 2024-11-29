@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.banner,
+.item {
+  background: linear-gradient(-90deg, #d3d8ce 0%, #b5cbd2 50%, #d3d8ce 100%);
+  background-size: 400% 400%;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.banner {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.item {
+  width: 100%;
+  height: 5rem;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -135% 0%;
+  }
+}
