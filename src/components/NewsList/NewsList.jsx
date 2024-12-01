@@ -4,8 +4,8 @@ import NewsItem from "../NewsItem/NewsItem";
 const NewsList = ({ news }) => {
   return (
     <ul className={styles.list}>
-      {news.map((el) => {
-        return <NewsItem key={el.id} item={el} />;
+      {news.map((el, index) => {
+        return <NewsItem key={index} item={el} />;
       })}
     </ul>
   );

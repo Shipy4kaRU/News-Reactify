@@ -4,16 +4,19 @@ import { useEffect, useState } from "react";
 import { getNews } from "../../API/apiNews";
 import NewsList from "../NewsList/NewsList";
 import Skeleton from "../Skeleton/Skeleton";
+import Pagination from "../Pagination/Pagination";
 
 const Main = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 7;
 
   useEffect(() => {
-    const fetchNews = async () => {
+    const fetchNews = async (currentPage) => {
       try {
         setIsLoading(true);
-        const response = await getNews();
+        const response = await getNews("technology", 10, currentPage);
         console.log(response);
         setIsLoading(false);
         setNews(response.articles);
@@ -21,8 +24,25 @@ const Main = () => {
         console.log(err);
       }
     };
-    fetchNews(0);
-  }, []);
+
+    fetchNews(currentPage);
+  }, [currentPage]);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prevState) => prevState + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevState) => prevState - 1);
+    }
+  };
+
+  const handleCurrentPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className={styles.main}>
@@ -31,6 +51,14 @@ const Main = () => {
       ) : (
         <Skeleton count={1} type="banner" />
       )}
+
+      <Pagination
+        totalPages={totalPages}
+        onNext={handleNextPage}
+        onPrev={handlePrevPage}
+        onCurrent={handleCurrentPage}
+      />
+
       {news.length > 0 && !isLoading ? (
         <NewsList news={news} />
       ) : (
