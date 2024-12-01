@@ -4,7 +4,11 @@ const Header = ({ totalPages, onNext, onPrev, onCurrent, currentPage }) => {
   return (
     <div className={styles.pagination}>
       <div>
-        <button className={styles.arrow} onClick={onPrev}>
+        <button
+          disabled={currentPage <= 1}
+          className={styles.arrow}
+          onClick={onPrev}
+        >
           {"<"}
         </button>
       </div>
@@ -21,7 +25,11 @@ const Header = ({ totalPages, onNext, onPrev, onCurrent, currentPage }) => {
         );
       })}
       <div>
-        <button className={styles.arrow} onClick={onNext}>
+        <button
+          disabled={currentPage >= totalPages}
+          className={styles.arrow}
+          onClick={onNext}
+        >
           {">"}
         </button>
       </div>
