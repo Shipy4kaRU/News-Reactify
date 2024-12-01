@@ -6,25 +6,34 @@ import NewsList from "../NewsList/NewsList";
 import Skeleton from "../Skeleton/Skeleton";
 import Pagination from "../Pagination/Pagination";
 import Categories from "../Categories/Categories";
-import { newsCategories } from "../../API/apiNews";
+import { NEWS_CATEGORIES } from "../constants/contants";
+import { NUMBER_PAGE_NEWS } from "../constants/contants";
+import Search from "../Search/Search";
+import { useDebounce } from "../../helpers/hooks/useDebounce";
 
 let totalPages = null;
-const numberPageNews = 10;
 
 const Main = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [category, setCategory] = useState(newsCategories[0]);
+  const [category, setCategory] = useState(NEWS_CATEGORIES[0]);
+  const [keywords, setKeywords] = useState("");
+  const debouncedKeywords = useDebounce(keywords, 1500);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
         setIsLoading(true);
-        const response = await getNews(category, numberPageNews, currentPage);
+        const response = await getNews(
+          category,
+          NUMBER_PAGE_NEWS,
+          currentPage,
+          debouncedKeywords
+        );
         console.log(response);
         setIsLoading(false);
-        totalPages = Math.ceil(response.totalResults / numberPageNews);
+        totalPages = Math.ceil(response.totalResults / NUMBER_PAGE_NEWS);
         setNews(response.articles);
       } catch (err) {
         console.log(err);
@@ -32,7 +41,7 @@ const Main = () => {
     };
 
     fetchNews(currentPage);
-  }, [currentPage, category]);
+  }, [currentPage, category, debouncedKeywords]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -54,8 +63,14 @@ const Main = () => {
     setCategory(category);
   };
 
+  const onSearchHandler = (text) => {
+    setKeywords(text);
+  };
+
   return (
     <main className={styles.main}>
+      <Search onSearch={onSearchHandler} keywords={keywords} />
+
       <Categories
         selectedCategory={category}
         setSelectedCategory={setCategoryHandler}
