@@ -19,8 +19,16 @@
   cursor: pointer;
 }
 
+.pageNumber:disabled {
+  cursor: default;
+}
+
 .arrow {
   border: none;
   background-color: white;
   cursor: pointer;
+}
+
+.arrow:disabled {
+  cursor: default;
 }
