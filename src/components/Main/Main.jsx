@@ -61,6 +61,7 @@ const Main = () => {
 
       <Pagination
         totalPages={totalPages}
+        currentPage={currentPage}
         onNext={handleNextPage}
         onPrev={handlePrevPage}
         onCurrent={handleCurrentPage}
