@@ -6,11 +6,12 @@ import NewsList from "../NewsList/NewsList";
 import Skeleton from "../Skeleton/Skeleton";
 import Pagination from "../Pagination/Pagination";
 
+let totalPages = null;
+
 const Main = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 7;
 
   useEffect(() => {
     const fetchNews = async (currentPage) => {
@@ -19,6 +20,7 @@ const Main = () => {
         const response = await getNews("technology", 10, currentPage);
         console.log(response);
         setIsLoading(false);
+        totalPages = Math.ceil(response.totalResults / 10);
         setNews(response.articles);
       } catch (err) {
         console.log(err);
