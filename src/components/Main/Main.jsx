@@ -5,6 +5,8 @@ import { getNews } from "../../API/apiNews";
 import NewsList from "../NewsList/NewsList";
 import Skeleton from "../Skeleton/Skeleton";
 import Pagination from "../Pagination/Pagination";
+import Categories from "../Categories/Categories";
+import { newsCategories } from "../../API/apiNews";
 
 let totalPages = null;
 const numberPageNews = 10;
@@ -13,16 +15,13 @@ const Main = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [category, setCategory] = useState(newsCategories[0]);
 
   useEffect(() => {
-    const fetchNews = async (currentPage) => {
+    const fetchNews = async () => {
       try {
         setIsLoading(true);
-        const response = await getNews(
-          "technology",
-          numberPageNews,
-          currentPage
-        );
+        const response = await getNews(category, numberPageNews, currentPage);
         console.log(response);
         setIsLoading(false);
         totalPages = Math.ceil(response.totalResults / numberPageNews);
@@ -32,8 +31,8 @@ const Main = () => {
       }
     };
 
-    fetchNews(currentPage);
-  }, [currentPage]);
+    fetchNews();
+  }, [currentPage, category]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
@@ -51,8 +50,17 @@ const Main = () => {
     setCurrentPage(pageNumber);
   };
 
+  const setCategoryHandler = (category) => {
+    setCategory(category);
+  };
+
   return (
-    <div className={styles.main}>
+    <main className={styles.main}>
+      <Categories
+        selectedCategory={category}
+        setSelectedCategory={setCategoryHandler}
+      />
+
       {news.length > 0 && !isLoading ? (
         <Hero item={news[0]} />
       ) : (
@@ -80,7 +88,7 @@ const Main = () => {
         onPrev={handlePrevPage}
         onCurrent={handleCurrentPage}
       />
-    </div>
+    </main>
   );
 };
 
