@@ -12,23 +12,18 @@
   justify-content: center;
 }
 
-.pageNumber {
-  padding: 0.5rem;
-  border: none;
-  background-color: white;
-  cursor: pointer;
-}
-
-.pageNumber:disabled {
-  cursor: default;
-}
-
+.pageNumber,
 .arrow {
   border: none;
   background-color: white;
   cursor: pointer;
 }
 
+.pageNumber {
+  padding: 0.5rem;
+}
+
+.pageNumber:disabled,
 .arrow:disabled {
   cursor: default;
 }
