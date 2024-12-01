@@ -32,7 +32,7 @@ const Main = () => {
     };
 
     fetchNews(currentPage);
-  }, [currentPage]);
+  }, [currentPage, category]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
