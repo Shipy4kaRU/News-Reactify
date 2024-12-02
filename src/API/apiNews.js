@@ -1,4 +1,4 @@
-const BASE_URL = "https://newsapi.org/v2/top-headlines";
+const BASE_URL = "https://newsapi.org/v2/top-headlines"; //://newsapi.org/v2/top-headlines
 const KEY = "076e01274d3a4eaba29760429047080c";
 
 export const getNews = async (

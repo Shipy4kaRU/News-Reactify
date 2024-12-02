@@ -1,13 +1,43 @@
 .search {
   display: flex;
-  width: 100%;
-  background-color: white;
+  width: 5em;
+  background-color: transparent;
   gap: 0.9rem;
+  transition: width 0.2s ease-in-out;
 }
 
 .input {
   width: 100%;
   padding: 0.3rem 0.7rem;
-  border: 1px solid #f2f3f5;
+  outline: 1.5px solid #595858;
   border-radius: 12px;
+  transition: outline-color 0.14s;
+}
+
+.input:hover {
+  outline-color: black;
+}
+
+.show {
+  width: 7em;
+}
+
+@media (min-width: 768px) {
+  .search {
+    width: 13em;
+  }
+
+  .show {
+    width: 20em;
+  }
+}
+
+@media (min-width: 1440px) {
+  .search {
+    width: 20em;
+  }
+
+  .show {
+    width: 35em;
+  }
 }

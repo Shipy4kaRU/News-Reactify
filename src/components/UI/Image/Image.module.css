@@ -2,16 +2,32 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding-top: 80%;
+  border-radius: 12px;
   background-color: #d2d2d2;
   overflow: hidden;
 }
 
-.image {
+@media (min-width: 1440px) {
+  .wrapper {
+    width: 60%;
+  }
+}
+
+.wrapper::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Затемняющий эффект */
+  pointer-events: none; /* Чтобы не мешать взаимодействию с изображением */
+}
+
+.image {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }

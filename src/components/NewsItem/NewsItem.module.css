@@ -1,29 +1,45 @@
 .item {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  max-width: 15rem;
+  min-width: 10rem;
   gap: 0.7rem;
 }
 
 .wrapper {
-  width: 4rem;
-  height: 4rem;
+  width: 100%;
+  height: 10rem;
   background-color: #f2f4f5;
   background-position: center;
   background-size: cover;
   flex-shrink: 0;
+  border-radius: 8%;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .title {
-  font-size: 0.7rem;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .extra {
-  font-size: 0.8rem;
-  color: #6c7072;
+  font-size: 0.6rem;
+  color: #5c5f60;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 1rem;
+  }
+  .extra {
+    font-size: 0.8rem;
+  }
 }

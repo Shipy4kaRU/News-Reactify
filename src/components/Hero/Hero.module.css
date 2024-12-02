@@ -1,15 +1,47 @@
 .hero {
   display: flex;
+  position: relative;
   width: 100%;
   flex-direction: column;
   gap: 0.7rem;
 }
 
 .title {
+  position: absolute;
+  color: white;
+  margin: 0;
+  padding-right: 1rem;
   font-size: 1rem;
+  left: 0.5em;
+  bottom: 2em;
 }
 
 .extra {
-  font-size: 0.8rem;
-  color: #6c7072;
+  position: absolute;
+  margin: 0;
+  font-size: 0.7rem;
+  bottom: 0.7em;
+  right: 1.3em;
+  color: white;
+}
+
+.image-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  padding: 0 0 0 2rem;
+  font-size: 1.2rem;
+  width: 40%;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .extra {
+    font-size: 0.9rem;
+    left: 1.1em;
+  }
 }

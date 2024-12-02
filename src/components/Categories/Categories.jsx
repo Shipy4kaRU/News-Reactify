@@ -1,10 +1,10 @@
 import styles from "./Categories.module.css";
-import { newsCategories } from "../../API/apiNews";
+import { NEWS_CATEGORIES } from "../../constants/contants";
 
 const Categories = ({ selectedCategory, setSelectedCategory }) => {
   return (
     <div className={styles.categories}>
-      {newsCategories.map((category) => (
+      {NEWS_CATEGORIES.map((category) => (
         <button
           key={category}
           onClick={setSelectedCategory.bind(this, category)}
