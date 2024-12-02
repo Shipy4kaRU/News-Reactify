@@ -8,9 +8,9 @@ import Categories from "../Categories/Categories";
 import { NEWS_CATEGORIES } from "../../constants/contants";
 import { NUMBER_PAGE_NEWS } from "../../constants/contants";
 import { usePaginationNews } from "../../helpers/hooks/usePaginationNews";
+import { useSelector } from "react-redux";
 
 let totalPages = null;
-const debouncedKeywords = "";
 
 const Main = () => {
   const [news, setNews] = useState([]);
@@ -19,6 +19,8 @@ const Main = () => {
 
   const { currentPage, handleNextPage, handlePrevPage, handleCurrentPage } =
     usePaginationNews(1, totalPages);
+
+  const debouncedKeywords = useSelector((state) => state.keywords.keywords);
 
   useEffect(() => {
     const fetchNews = async () => {

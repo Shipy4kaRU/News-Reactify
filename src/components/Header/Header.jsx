@@ -1,12 +1,13 @@
 import Search from "../Search/Search";
 import styles from "./Header.module.css";
 import { useState } from "react";
-// import useDebounce from "../../helpers/hooks/useDebounce";
+import { Link } from "react-router-dom";
+import useDebounce from "../../helpers/hooks/useDebounce";
 
 const Header = () => {
   const [keywords, setKeywords] = useState("");
   const [isSearch, setIsSearch] = useState(false);
-  // const debouncedKeywords = useDebounce(keywords, 1500);
+  useDebounce(keywords, 1500);
 
   const onSearchHandler = (text) => {
     setKeywords(text);
@@ -27,7 +28,7 @@ const Header = () => {
   return (
     <div className={styles["header-container"]}>
       <header className={styles.header}>
-        <button className={styles.logo}>
+        <Link to="/home" className={styles.logo}>
           <img
             src="src\assets\logo.svg"
             width={103}
@@ -35,7 +36,7 @@ const Header = () => {
             className={styles["logo-icon"]}
             alt="logo"
           />
-        </button>
+        </Link>
 
         <div className={styles[`search-container`]}>
           <Search
