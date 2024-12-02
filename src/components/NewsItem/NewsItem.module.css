@@ -1,20 +1,31 @@
 .item {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 15rem;
-  min-width: 10rem;
+  box-sizing: border-box;
   gap: 0.7rem;
+  background-color: #92a8af;
+  border-radius: 10px;
+}
+
+@media (min-width: 600px) {
+  .item {
+    max-width: 20rem;
+  }
 }
 
 .wrapper {
   width: 100%;
   height: 10rem;
-  background-color: #f2f4f5;
-  background-position: center;
+  background-color: #3d3d3d;
+  background-position: top;
   background-size: cover;
-  flex-shrink: 0;
   border-radius: 8%;
+}
+
+@media (min-width: 600px) {
+  .wrapper {
+    background-position: center;
+  }
 }
 
 .info {
@@ -22,6 +33,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: 0 0.5em;
 }
 
 .title {
@@ -32,7 +44,7 @@
 
 .extra {
   font-size: 0.6rem;
-  color: #5c5f60;
+  color: #202020;
 }
 
 @media (min-width: 768px) {

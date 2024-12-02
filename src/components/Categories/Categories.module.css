@@ -25,6 +25,7 @@
   border: none;
   border-radius: 16px;
   background-color: #f2f4f5;
+  transition: color 0.14s;
 }
 
 @media (min-width: 768px) {
@@ -38,6 +39,11 @@
 .active {
   background-color: #e7e7ff;
   color: #6b43ff;
+}
+
+.item:hover,
+.active:hover {
+  color: rgb(62, 19, 221);
 }
 
 ::-webkit-scrollbar {

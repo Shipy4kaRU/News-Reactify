@@ -1,6 +1,7 @@
 .wrapper {
   width: 100%;
   height: auto;
+  min-height: 15em;
   position: relative;
   border-radius: 12px;
   background-color: #d2d2d2;
