@@ -5,6 +5,7 @@
   gap: 0.7rem;
   background-color: #ebf0f2;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 600px) {

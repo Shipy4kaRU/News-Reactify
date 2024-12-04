@@ -1,9 +1,9 @@
 import styles from "./NewsItem.module.css";
 import { formatTimeAgo } from "../../helpers/formatTimeAgo";
 
-const NewsItem = ({ item }) => {
+const NewsItem = ({ item, onSelect }) => {
   return (
-    <li className={styles.item}>
+    <li className={styles.item} onClick={onSelect}>
       <div
         className={styles.wrapper}
         style={{ backgroundImage: `url(${item.urlToImage})` }}

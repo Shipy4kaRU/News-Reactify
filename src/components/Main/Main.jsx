@@ -16,6 +16,7 @@ const Main = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = useState(NEWS_CATEGORIES[0]);
+  const currentNews = useSelector((state) => state.currentNews.currentNews);
 
   const { currentPage, handleNextPage, handlePrevPage, handleCurrentPage } =
     usePaginationNews(1, totalPages);
@@ -55,7 +56,7 @@ const Main = () => {
         setSelectedCategory={setCategoryHandler}
       />
 
-      <Hero isLoading={isLoading} item={news.length > 0 && news[0]} />
+      <Hero isLoading={isLoading} item={news.length > 0 && news[currentNews]} />
 
       <NewsList news={news} isLoading={isLoading} />
 
