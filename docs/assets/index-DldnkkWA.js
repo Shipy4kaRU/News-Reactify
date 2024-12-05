@@ -12360,7 +12360,7 @@ const Mm = { keywords: "" },
             to: "/home",
             className: En.logo,
             children: b.jsx("img", {
-              src: "https://shipy4karu.github.io/News-Reactify/assets//logo.svg",
+              src: "https://shipy4karu.github.io/News-Reactify/assets/logo.svg",
               width: 103,
               height: 57.3,
               className: En["logo-icon"],
