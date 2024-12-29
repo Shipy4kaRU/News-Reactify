@@ -1,9 +1,15 @@
-import { formatTimeAgo } from "../../helpers/formatTimeAgo";
-import withSkeleton from "../../helpers/hocs/withSkeleton.jsx";
-import Image from "../UI/Image/Image";
+import { formatTimeAgo } from "../../helpers/formatTimeAgo.ts";
+import withSkeleton from "../../helpers/hocs/withSkeleton.tsx";
+import Image from "../UI/Image/Image.tsx";
 import styles from "./Hero.module.css";
+import { News } from "../../types/interfaces.ts";
+import { FC } from "react";
 
-const Hero = ({ item }) => {
+interface HeroProps {
+  item: News;
+}
+
+const Hero: FC<HeroProps> = ({ item }) => {
   let content = <Image image={item.urlToImage} />;
 
   if (window.innerWidth >= 1440) {
@@ -26,6 +32,10 @@ const Hero = ({ item }) => {
   );
 };
 
-const HeroWithSkeleton = withSkeleton(Hero, "banner", 1);
+const HeroWithSkeleton = withSkeleton({
+  Component: Hero,
+  type: "banner",
+  count: 1,
+});
 
 export default HeroWithSkeleton;

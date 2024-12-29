@@ -1,15 +1,15 @@
-import Search from "../Search/Search";
+import Search from "../Search/Search.tsx";
 import styles from "./Header.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import useDebounce from "../../helpers/hooks/useDebounce";
+import useDebounce from "../../helpers/hooks/useDebounce.ts";
 
 const Header = () => {
-  const [keywords, setKeywords] = useState("");
-  const [isSearch, setIsSearch] = useState(false);
+  const [keywords, setKeywords] = useState<string>("");
+  const [isSearch, setIsSearch] = useState<boolean>(false);
   useDebounce(keywords, 1500);
 
-  const onSearchHandler = (text) => {
+  const onSearchHandler = (text: string) => {
     setKeywords(text);
   };
 

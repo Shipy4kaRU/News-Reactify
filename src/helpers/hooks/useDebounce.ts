@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { keywordsSliceActions } from "../../store/keywordsSlice";
+import { keywordsSliceActions } from "../../store/keywordsSlice.ts";
 
 export const useDebounce = (value, delay) => {
   const [debounceValue, setDebounceValue] = useState(value);

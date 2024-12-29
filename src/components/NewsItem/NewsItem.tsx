@@ -1,7 +1,14 @@
 import styles from "./NewsItem.module.css";
-import { formatTimeAgo } from "../../helpers/formatTimeAgo";
+import { formatTimeAgo } from "../../helpers/formatTimeAgo.ts";
+import { FC } from "react";
+import { News } from "../../types/interfaces.ts";
 
-const NewsItem = ({ item, onSelect }) => {
+interface NewsItemProps {
+  item: News;
+  onSelect: () => void;
+}
+
+const NewsItem: FC<NewsItemProps> = ({ item, onSelect }) => {
   return (
     <li className={styles.item} onClick={onSelect}>
       <div

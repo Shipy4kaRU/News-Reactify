@@ -1,13 +1,19 @@
 import styles from "./NewsList.module.css";
-import NewsItem from "../NewsItem/NewsItem";
-import withSkeleton from "../../helpers/hocs/withSkeleton.jsx";
+import NewsItem from "../NewsItem/NewsItem.tsx";
+import withSkeleton from "../../helpers/hocs/withSkeleton.tsx";
 import { useDispatch } from "react-redux";
-import { currentNewsSliceActions } from "../../store/currentNewsSlice";
+import { currentNewsSliceActions } from "../../store/currentNewsSlice.ts";
+import { FC } from "react";
+import { News } from "../../types/interfaces.ts";
 
-const NewsList = ({ news }) => {
+interface NewsListProps {
+  news: News[];
+}
+
+const NewsList: FC<NewsListProps> = ({ news }) => {
   const dispatch = useDispatch();
 
-  const onSelectHandler = (index) => {
+  const onSelectHandler = (index: number) => {
     dispatch(currentNewsSliceActions.setCurrentNews(index));
   };
 
@@ -27,6 +33,10 @@ const NewsList = ({ news }) => {
   );
 };
 
-const NewsListWithSkeleton = withSkeleton(NewsList, "banner", 1);
+const NewsListWithSkeleton = withSkeleton({
+  Component: NewsList,
+  type: "banner",
+  count: 1,
+});
 
 export default NewsListWithSkeleton;

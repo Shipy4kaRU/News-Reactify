@@ -1,4 +1,4 @@
-import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home.tsx";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 function App() {

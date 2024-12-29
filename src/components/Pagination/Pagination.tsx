@@ -1,6 +1,21 @@
+import { FC } from "react";
 import styles from "./Pagination.module.css";
 
-const Header = ({ totalPages, onNext, onPrev, onCurrent, currentPage }) => {
+interface HeaderProps {
+  totalPages: number;
+  onNext: () => void;
+  onPrev: () => void;
+  onCurrent: (page: number) => void;
+  currentPage: number;
+}
+
+const Header: FC<HeaderProps> = ({
+  totalPages,
+  onNext,
+  onPrev,
+  onCurrent,
+  currentPage,
+}) => {
   return (
     <div className={styles.pagination}>
       <div>

@@ -1,6 +1,11 @@
+import { FC } from "react";
 import styles from "./Image.module.css";
 
-const Image = ({ image }) => {
+interface ImageProps {
+  image: string;
+}
+
+const Image: FC<ImageProps> = ({ image }) => {
   return (
     <div className={styles.wrapper}>
       {image ? (

@@ -16,6 +16,7 @@
 .pageNumber,
 .arrow {
   border: none;
+  color: black;
   background-color: white;
   cursor: pointer;
 }

@@ -2,12 +2,12 @@ import styles from "./Main.module.css";
 import Hero from "../Hero/Hero";
 import { useEffect, useState } from "react";
 import { getNews } from "../../API/apiNews";
-import NewsList from "../NewsList/NewsList";
-import Pagination from "../Pagination/Pagination";
+import NewsList from "../NewsList/NewsList.tsx";
+import Pagination from "../Pagination/Pagination.tsx";
 import Categories from "../Categories/Categories";
-import { NEWS_CATEGORIES } from "../../constants/contants";
-import { NUMBER_PAGE_NEWS } from "../../constants/contants";
-import { usePaginationNews } from "../../helpers/hooks/usePaginationNews";
+import { NEWS_CATEGORIES } from "../../constants/contants.ts";
+import { NUMBER_PAGE_NEWS } from "../../constants/contants.ts";
+import { usePaginationNews } from "../../helpers/hooks/usePaginationNews.ts";
 import { useSelector } from "react-redux";
 
 let totalPages = null;
