@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  background-color: white;
+  background-color: var(--card-background);
   border-bottom: 1.5px solid black;
   z-index: 1;
 }
@@ -55,9 +55,31 @@
 .search-icon {
   width: 1.1em;
   height: 1.6em;
-  transition: transform 0.14s;
+  color: var(--card-text);
+  transition: transform 0.14s, color 0.2s;
 }
 
-.search-icon:hover {
+.theme {
+  display: block;
+  padding: 0;
+  margin-left: 1rem;
+  color: var(--card-text);
+  background-color: transparent;
+  transition: transform 0.14s, color 0.2s;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.search-icon:hover,
+.theme:hover {
   transform: scale(1.05);
+  color: rgb(110, 110, 224);
+}
+
+.search-icon:hover,
+.theme:active {
+  color: rgb(66, 66, 224);
 }

@@ -4,10 +4,6 @@
   font-weight: 400;
   box-sizing: border-box;
 
-  color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -33,6 +29,25 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--page-background);
+
+  --page-background: rgb(243, 242, 242);
+  --card-background: #242424;
+  --page-text: black;
+  --card-text: white;
+  --skeleton-1: #d3d8ce;
+  --skeleton-2: #b5cbd2;
+  --skeleton-3: #d3d8ce;
+}
+
+body.dark {
+  --page-background: #242424;
+  --card-background: rgb(243, 242, 242);
+  --page-text: white;
+  --card-text: black;
+  --skeleton-1: #363636;
+  --skeleton-2: #222121;
+  --skeleton-3: #363636;
 }
 
 h1 {
@@ -47,7 +62,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--card-background);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -55,17 +70,4 @@ button {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

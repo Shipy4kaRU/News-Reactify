@@ -24,9 +24,9 @@
   padding: 0.3rem 0.7rem;
   border: none;
   border-radius: 16px;
-  color: black;
-  background-color: #f2f4f5;
-  transition: color 0.14s;
+  color: var(--card-text);
+  background-color: var(--card-background);
+  transition: color 0.17s;
 }
 
 @media (min-width: 768px) {

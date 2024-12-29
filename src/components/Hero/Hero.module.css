@@ -34,7 +34,7 @@
   padding: 0 0 0 2rem;
   font-size: 1.2rem;
   width: 40%;
-  color: white;
+  color: var(--page-text);
 }
 
 @media (min-width: 768px) {

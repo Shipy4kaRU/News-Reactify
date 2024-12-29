@@ -10,7 +10,7 @@ import { NUMBER_PAGE_NEWS } from "../../constants/contants.ts";
 import { usePaginationNews } from "../../helpers/hooks/usePaginationNews.ts";
 import { useSelector } from "react-redux";
 
-let totalPages = null;
+let totalPages: null | number = null;
 
 const Main = () => {
   const [news, setNews] = useState([]);

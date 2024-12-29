@@ -16,8 +16,8 @@
 .pageNumber,
 .arrow {
   border: none;
-  color: black;
-  background-color: white;
+  color: var(--card-text);
+  background-color: var(--card-background);
   cursor: pointer;
 }
 
